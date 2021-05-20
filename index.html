@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>lab14</title>
+        <style>
+            #calc{
+                margin: auto;
+                background-color: cornflowerblue;
+                width: 195px;
+                height: 220px;
+                padding: 10px;
+            }
+            #dis{
+                background-color: white;
+                height: 25px;
+                padding: 1px;
+                margin: 5px;
+                text-align: right;
+                font-size: 23px;
+            }
+            button{
+                font-size: 20px;
+                padding: 3px;
+                margin: 5px;
+                height: 35px;
+                width: 35px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="calc">
+            <div id="dis">
+                0
+            </div>
+            <div id="k">
+                <button onclick="ex('7')">7</button>
+                <button onclick="ex('8')">8</button>
+                <button onclick="ex('9')">9</button>
+                <button onclick="ex('+')">+</button>
+                <button onclick="ex('4')">4</button>
+                <button onclick="ex('5')">5</button>
+                <button onclick="ex('6')">6</button>
+                <button onclick="ex('-')">-</button>
+                <button onclick="ex('1')">1</button>
+                <button onclick="ex('2')">2</button>
+                <button onclick="ex('3')">3</button>
+                <button onclick="ex('*')">X</button>
+                <button onclick="cl()">C</button>
+                <button onclick="ex('0')">0</button>
+                <button onclick="res()">=</button>
+                <button onclick="ex('/')">/</button>
+            </div>
+
+        </div>
+        <script>
+            var a=0;
+            function ex(ch){
+                if(a=="0") a=ch;
+//                else if((a.endsWith("+")||a.endsWith("-")||a.endsWith("*")||a.endsWith("/"))&&(ch=="+"||ch=="-"||ch=="*"||ch=="/")) {ch=""; a+=ch;}
+                else a += ch;
+                document.getElementById("dis").innerHTML=a;
+            }
+            function res(){
+                b=a.length;
+                if(a.endsWith("+")||a.endsWith("-")) a=a+"0"
+                else if(a.endsWith("*")||a.endsWith("/")) a=a+"1"
+                a=eval(a);
+                document.getElementById("dis").innerHTML=a;
+            }
+            function cl(){
+                a=0;
+                document.getElementById("dis").innerHTML=a;
+            }
+        </script>
+    </body>
+</html>
